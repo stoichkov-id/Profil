@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Subhan | Mahasiswa</title>
+    
+    <!-- Google Fonts: Inter for modern clean UI, Fira Code for code snippets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#38bdf8', /* Sky 400 */
+                            DEFAULT: '#0ea5e9', /* Sky 500 */
+                            dark: '#0284c7', /* Sky 600 */
+                            accent: '#6366f1', /* Indigo 500 */
+                        },
+                        base: {
+                            bg: '#020617', /* Slate 950 - Sangat gelap */
+                            surface: '#0f172a', /* Slate 900 - Sidebar & Sections */
+                            card: '#1e293b', /* Slate 800 - Kotak/Cards */
+                            border: '#334155' /* Slate 700 - Garis batas */
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'code': ['"Fira Code"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'tech-grid': 'linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)',
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Typing Effect Cursor */
+        .typed-cursor {
+            opacity: 1;
+            animation: blink 0.8s infinite;
+            color: #38bdf8;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Sidebar transitions */
+        #sidebar {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Active Nav Link Styling with subtle glow */
+        .nav-link.active {
+            color: #fff;
+            background: linear-gradient(90deg, rgba(14,165,233,0.15) 0%, rgba(14,165,233,0) 100%);
+            border-left: 3px solid #38bdf8;
+        }
+        .nav-link.active i {
+            color: #38bdf8;
+        }
+
+        /* Modern Gradient Text Utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #38bdf8, #818cf8);
+        }
+
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-base-bg text-slate-300 font-sans antialiased selection:bg-brand-DEFAULT selection:text-white overflow-x-hidden">
+
+    <!-- Mobile Nav Toggle Button -->
+    <button id="mobile-nav-toggle" class="fixed top-5 right-5 z-[999] bg-base-card/80 backdrop-blur border border-base-border text-white w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xl xl:hidden cursor-pointer hover:border-brand-DEFAULT hover:text-brand-light transition-all">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Sidebar / Header -->
+    <header id="sidebar" class="fixed top-0 left-0 bottom-0 w-[300px] z-[99] bg-base-surface border-r border-base-border text-white flex flex-col justify-between overflow-y-auto transform -translate-x-full xl:translate-x-0 shadow-2xl xl:shadow-none">
+        
+        <div class="flex flex-col">
+            <!-- Profile Info -->
+            <div class="flex flex-col items-center mt-12 mb-8 px-6">
+                <!-- Foto profil dengan cincin gradien modern -->
+                <div class="relative mb-5 p-1 rounded-full bg-gradient-to-tr from-brand-DEFAULT to-brand-accent shadow-[0_0_20px_rgba(14,165,233,0.3)]">
+                    <img src="Subhan.jpeg" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Subhan&background=0f172a&color=38bdf8&size=256';" alt="Subhan" class="w-32 h-32 rounded-full border-4 border-base-surface object-cover relative z-10">
+                </div>
+                
+                <h1 class="text-2xl font-bold m-0 tracking-tight text-white">Subhan</h1>
+                <div class="mt-2 py-1 px-3 bg-brand-DEFAULT/10 border border-brand-DEFAULT/20 rounded-full">
+                    <p class="text-brand-light text-xs font-semibold tracking-wide uppercase">Mahasiswa</p>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex space-x-3 mt-6">
+                    <a href="#" class="bg-base-card hover:bg-brand-DEFAULT text-slate-400 hover:text-white w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 border border-base-border hover:border-brand-DEFAULT hover:shadow-[0_0_15px_rgba(14,165,233,0.4)]"><i class="fa-brands fa-github text-lg"></i></a>
+                    <a href="#" class="bg-base-card hover:bg-brand-DEFAULT text-slate-400 hover:text-white w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 border border-base-border hover:border-brand-DEFAULT hover:shadow-[0_0_15px_rgba(14,165,233,0.4)]"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+                    <a href="#" class="bg-base-card hover:bg-brand-DEFAULT text-slate-400 hover:text-white w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 border border-base-border hover:border-brand-DEFAULT hover:shadow-[0_0_15px_rgba(14,165,233,0.4)]"><i class="fa-brands fa-twitter text-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="mt-2 w-full">
+                <ul class="flex flex-col space-y-1 px-4">
+                    <li>
+                        <a href="#hero" class="nav-link active flex items-center py-3.5 px-6 rounded-lg text-slate-400 hover:text-white hover:bg-base-card transition-all duration-300 group border-l-3 border-transparent">
+                            <i class="fa-solid fa-layer-group w-6 group-hover:text-brand-light transition-colors duration-300"></i>
+                            <span class="ml-3 font-medium">Beranda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="nav-link flex items-center py-3.5 px-6 rounded-lg text-slate-400 hover:text-white hover:bg-base-card transition-all duration-300 group border-l-3 border-transparent">
+                            <i class="fa-regular fa-id-badge w-6 group-hover:text-brand-light transition-colors duration-300"></i>
+                            <span class="ml-3 font-medium">Tentang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pendidikan" class="nav-link flex items-center py-3.5 px-6 rounded-lg text-slate-400 hover:text-white hover:bg-base-card transition-all duration-300 group border-l-3 border-transparent">
+                            <i class="fa-solid fa-graduation-cap w-6 group-hover:text-brand-light transition-colors duration-300"></i>
+                            <span class="ml-3 font-medium">Pendidikan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services" class="nav-link flex items-center py-3.5 px-6 rounded-lg text-slate-400 hover:text-white hover:bg-base-card transition-all duration-300 group border-l-3 border-transparent">
+                            <i class="fa-solid fa-laptop-code w-6 group-hover:text-brand-light transition-colors duration-300"></i>
+                            <span class="ml-3 font-medium">Keahlian</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#proyek" class="nav-link flex items-center py-3.5 px-6 rounded-lg text-slate-400 hover:text-white hover:bg-base-card transition-all duration-300 group border-l-3 border-transparent">
+                            <i class="fa-solid fa-laptop-file w-6 group-hover:text-brand-light transition-colors duration-300"></i>
+                            <span class="ml-3 font-medium">Proyek</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav-link flex items-center py-3.5 px-6 rounded-lg text-slate-400 hover:text-white hover:bg-base-card transition-all duration-300 group border-l-3 border-transparent">
+                            <i class="fa-regular fa-paper-plane w-6 group-hover:text-brand-light transition-colors duration-300"></i>
+                            <span class="ml-3 font-medium">Kontak</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Footer -->
+        <div class="px-6 pb-8 text-center text-xs text-slate-500 mt-10">
+            <p>&copy; 2026 Hak Cipta Dilindungi</p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="xl:ml-[300px] transition-all duration-300 relative">
+        
+        <!-- Global Background Elements (Tech Grid + Glow) -->
+        <div class="fixed inset-0 z-0 pointer-events-none xl:ml-[300px]">
+            <div class="absolute inset-0 bg-tech-grid opacity-[0.03] bg-[size:30px_30px]"></div>
+            <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-DEFAULT rounded-full mix-blend-screen filter blur-[120px] opacity-10"></div>
+            <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-accent rounded-full mix-blend-screen filter blur-[120px] opacity-10"></div>
+        </div>
+        
+        <!-- Hero Section -->
+        <section id="hero" class="relative z-10 w-full h-screen flex flex-col justify-center border-b border-base-border/50">
+            <div class="w-full px-8 md:px-16 lg:px-24 xl:px-32">
+                <div class="max-w-4xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-DEFAULT/10 border border-brand-DEFAULT/20 text-brand-light text-sm font-medium mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-light opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-DEFAULT"></span>
+                        </span>
+                        Mahasiswa Universitas Jabal Ghafur
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-4 tracking-tight leading-tight">
+                        Belajar & Berkarya di <br>
+                        <span class="text-gradient">Era Digital.</span>
+                    </h1>
+                    
+                    <div class="text-xl md:text-2xl mt-6 text-slate-400 font-medium h-12">
+                        Saya seorang <span id="typed-text" class="text-white"></span><span class="typed-cursor">|</span>
+                    </div>
+
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="#proyek" class="bg-brand-DEFAULT hover:bg-brand-light text-white px-8 py-3.5 rounded-lg font-semibold transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)] flex items-center gap-2">
+                            Lihat Portofolio <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="bg-base-card hover:bg-base-border border border-base-border text-white px-8 py-3.5 rounded-lg font-semibold transition-all flex items-center gap-2">
+                            Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section id="about" class="relative z-10 min-h-screen py-24 px-8 md:px-16 lg:px-24 bg-base-surface/50 border-b border-base-border/50 flex flex-col justify-center">
+            <div class="max-w-6xl w-full mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <div class="w-12 h-12 rounded-xl bg-brand-DEFAULT/10 flex items-center justify-center text-brand-light text-xl border border-brand-DEFAULT/20">
+                        <i class="fa-regular fa-id-badge"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white tracking-tight">Tentang Saya</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Text Content -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Inovasi melalui <span class="text-brand-light">Teknologi</span></h3>
+                        <p class="text-slate-400 leading-relaxed text-lg mb-6">
+                            Halo, saya Subhan. Saat ini saya adalah seorang mahasiswa di Universitas Jabal Ghafur. Saya memiliki antusiasme yang tinggi dalam dunia teknologi informasi, pengembangan perangkat lunak, dan infrastruktur modern.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed text-lg mb-8">
+                            Fokus utama saya adalah menciptakan solusi yang efisien, aman, dan mudah digunakan, baik itu dalam bentuk aplikasi web maupun optimalisasi sistem IT.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="glass-card p-4 rounded-xl">
+                                <h4 class="text-brand-light font-bold text-2xl mb-1">Fokus</h4>
+                                <p class="text-sm text-slate-400">Pengembangan Diri</p>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl">
+                                <h4 class="text-brand-accent font-bold text-2xl mb-1">Aktif</h4>
+                                <p class="text-sm text-slate-400">Eksplorasi Proyek IT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modern Code Window -->
+                    <div class="rounded-2xl overflow-hidden border border-base-border shadow-2xl bg-[#0d1117]">
+                        <!-- Window Header -->
+                        <div class="bg-[#161b22] px-4 py-3 flex items-center border-b border-base-border/50">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                            </div>
+                            <div class="mx-auto flex items-center text-xs text-slate-500 font-code bg-[#0d1117] px-3 py-1 rounded-md border border-base-border/30">
+                                <i class="fa-brands fa-js text-yellow-400 mr-2"></i> profile.js
+                            </div>
+                        </div>
+                        <!-- Window Content -->
+                        <div class="p-6 font-code text-[13px] md:text-sm leading-loose overflow-x-auto text-slate-300">
+                            <span class="text-[#ff7b72]">const</span> <span class="text-[#79c0ff]">profile</span> <span class="text-[#ff7b72]">=</span> {<br>
+                            &nbsp;&nbsp;<span class="text-[#a5d6ff]">nama</span>: <span class="text-[#a5d6ff]">'</span><span class="text-[#a5d6ff]">Subhan</span><span class="text-[#a5d6ff]">'</span>,<br>
+                            &nbsp;&nbsp;<span class="text-[#a5d6ff]">role</span>: <span class="text-[#a5d6ff]">'</span><span class="text-[#a5d6ff]">Mahasiswa & Junior Dev</span><span class="text-[#a5d6ff]">'</span>,<br>
+                            &nbsp;&nbsp;<span class="text-[#a5d6ff]">pendidikan</span>: <span class="text-[#a5d6ff]">'</span><span class="text-[#a5d6ff]">Universitas Jabal Ghafur</span><span class="text-[#a5d6ff]">'</span>,<br>
+                            &nbsp;&nbsp;<span class="text-[#a5d6ff]">skills</span>: [<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#a5d6ff]">'HTML/CSS'</span>, <span class="text-[#a5d6ff]">'Tailwind CSS'</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#a5d6ff]">'JavaScript'</span>, <span class="text-[#a5d6ff]">'UI/UX Design'</span><br>
+                            &nbsp;&nbsp;],<br>
+                            &nbsp;&nbsp;<span class="text-[#d2a8ff]">tujuan</span>: <span class="text-[#ff7b72]">function</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ff7b72]">return</span> <span class="text-[#a5d6ff]">'Terus Belajar & Berkembang'</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            };<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pendidikan section -->
+        <section id="pendidikan" class="relative z-10 min-h-screen py-24 px-8 md:px-16 lg:px-24 border-b border-base-border/50 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto w-full">
+                <div class="flex items-center gap-4 mb-12">
+                    <div class="w-12 h-12 rounded-xl bg-brand-DEFAULT/10 flex items-center justify-center text-brand-light text-xl border border-brand-DEFAULT/20">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white tracking-tight">Riwayat Pendidikan</h2>
+                </div>
+                
+                <!-- Modern IT Timeline -->
+                <div class="relative border-l border-base-border/80 pl-8 ml-4 space-y-12">
+                    
+                    <!-- Universitas -->
+                    <div class="relative group">
+                        <!-- Glowing Dot -->
+                        <div class="absolute w-4 h-4 rounded-full bg-brand-DEFAULT shadow-[0_0_10px_#0ea5e9] -left-[41px] top-1.5 ring-4 ring-base-bg"></div>
+                        
+                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-brand-DEFAULT hover:-translate-y-1 transition-transform duration-300">
+                            <span class="inline-block py-1 px-3 rounded-full bg-brand-DEFAULT/10 text-brand-light text-xs font-semibold mb-3 border border-brand-DEFAULT/20">Saat Ini</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Universitas Jabal Ghafur</h3>
+                            <p class="text-slate-400 font-medium">Pendidikan Tinggi (Mahasiswa Aktif)</p>
+                        </div>
+                    </div>
+
+                    <!-- SMK -->
+                    <div class="relative group">
+                        <div class="absolute w-3 h-3 rounded-full bg-slate-600 -left-[39px] top-2 ring-4 ring-base-bg group-hover:bg-brand-accent transition-colors duration-300"></div>
+                        
+                        <div class="glass-card p-6 rounded-2xl hover:border-l-4 hover:border-l-brand-accent hover:-translate-y-1 transition-all duration-300">
+                            <h3 class="text-xl font-bold text-white mb-1">SMK Negeri 1 Sigli</h3>
+                            <p class="text-slate-400 font-medium">Pendidikan Menengah Kejuruan</p>
+                        </div>
+                    </div>
+                    
+                    <!-- SMP -->
+                    <div class="relative group">
+                        <div class="absolute w-3 h-3 rounded-full bg-slate-600 -left-[39px] top-2 ring-4 ring-base-bg group-hover:bg-brand-accent transition-colors duration-300"></div>
+                        
+                        <div class="glass-card p-6 rounded-2xl hover:border-l-4 hover:border-l-brand-accent hover:-translate-y-1 transition-all duration-300">
+                            <h3 class="text-xl font-bold text-white mb-1">SMP Negeri 1 Peukan Baro</h3>
+                            <p class="text-slate-400 font-medium">Pendidikan Menengah Pertama</p>
+                        </div>
+                    </div>
+                    
+                    <!-- MIN -->
+                    <div class="relative group">
+                        <div class="absolute w-3 h-3 rounded-full bg-slate-600 -left-[39px] top-2 ring-4 ring-base-bg group-hover:bg-brand-accent transition-colors duration-300"></div>
+                        
+                        <div class="glass-card p-6 rounded-2xl hover:border-l-4 hover:border-l-brand-accent hover:-translate-y-1 transition-all duration-300">
+                            <h3 class="text-xl font-bold text-white mb-1">MIN 42 Pidie</h3>
+                            <p class="text-slate-400 font-medium">Pendidikan Dasar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Layanan -->
+        <section id="services" class="relative z-10 min-h-screen py-24 px-8 md:px-16 lg:px-24 bg-base-surface/30 border-b border-base-border/50 flex flex-col justify-center">
+            <div class="max-w-6xl mx-auto w-full">
+                <div class="flex flex-col items-center text-center mb-16">
+                    <div class="w-12 h-12 rounded-xl bg-brand-DEFAULT/10 flex items-center justify-center text-brand-light text-xl border border-brand-DEFAULT/20 mb-4">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Fokus Studi & Keahlian</h2>
+                    <p class="text-slate-400 max-w-2xl text-lg">Bidang teknologi yang saat ini sedang saya pelajari dan kembangkan melalui perkuliahan maupun eksperimen mandiri.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Layanan 1 -->
+                    <div class="glass-card p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-light to-brand-DEFAULT transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        <div class="w-14 h-14 bg-base-bg rounded-xl flex items-center justify-center text-brand-light text-2xl mb-6 shadow-inner border border-base-border">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-light transition-colors">Web Development</h3>
+                        <p class="text-slate-400 leading-relaxed">Mempelajari dasar hingga tahapan lanjut dalam pembuatan aplikasi web yang responsif menggunakan tumpukan teknologi modern.</p>
+                    </div>
+
+                    <!-- Layanan 2 -->
+                    <div class="glass-card p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-accent to-purple-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        <div class="w-14 h-14 bg-base-bg rounded-xl flex items-center justify-center text-brand-accent text-2xl mb-6 shadow-inner border border-base-border">
+                            <i class="fa-solid fa-object-group"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">UI/UX Design</h3>
+                        <p class="text-slate-400 leading-relaxed">Eksplorasi desain antarmuka pengguna untuk menciptakan pengalaman visual yang rapi, intuitif, dan nyaman digunakan.</p>
+                    </div>
+
+                    <!-- Layanan 3 -->
+                    <div class="glass-card p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        <div class="w-14 h-14 bg-base-bg rounded-xl flex items-center justify-center text-emerald-400 text-2xl mb-6 shadow-inner border border-base-border">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">IT Support & Jaringan</h3>
+                        <p class="text-slate-400 leading-relaxed">Mendalami teori dan praktik pemeliharaan perangkat keras, dasar-dasar sistem operasi, serta arsitektur jaringan komputer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Proyek -->
+        <section id="proyek" class="relative z-10 min-h-screen py-24 px-8 md:px-16 lg:px-24 border-b border-base-border/50 flex flex-col justify-center">
+            <div class="max-w-6xl mx-auto w-full">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="w-12 h-12 rounded-xl bg-brand-DEFAULT/10 flex items-center justify-center text-brand-light text-xl border border-brand-DEFAULT/20">
+                        <i class="fa-solid fa-folder-tree"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white tracking-tight">Katalog Proyek & Profil</h2>
+                </div>
+
+                <!-- Grid untuk Kartu Proyek -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Proyek 1: Profil GitHub Utama (Proyek Unggulan - Lebar Penuh) -->
+                    <div class="glass-card rounded-3xl p-8 md:p-10 border border-base-border/60 relative overflow-hidden group flex flex-col md:flex-row items-center md:items-start gap-8 md:col-span-2">
+                        <!-- Cahaya latar -->
+                        <div class="absolute -right-10 -top-10 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] group-hover:bg-purple-500/20 transition-colors duration-500"></div>
+                        
+                        <!-- Ikon -->
+                        <div class="w-20 h-20 md:w-24 md:h-24 shrink-0 bg-base-bg border border-base-border rounded-2xl flex items-center justify-center text-purple-400 text-4xl shadow-lg group-hover:scale-105 group-hover:border-purple-500/50 transition-all duration-500 z-10">
+                            <i class="fa-brands fa-github-alt"></i>
+                        </div>
+                        
+                        <!-- Konten Teks -->
+                        <div class="flex flex-col items-center md:items-start text-center md:text-left z-10 flex-grow">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-800 border border-slate-700 text-slate-300 text-xs font-code mb-4">
+                                <i class="fa-solid fa-user-astronaut text-purple-400"></i> Repositori Utama
+                            </div>
+                            <h3 class="text-3xl font-bold text-white mb-4 tracking-tight">Profil GitHub Subhan</h3>
+                            <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8 max-w-3xl">Kunjungi profil GitHub utama saya untuk melihat semua kontribusi open-source, statistik aktivitas coding, seluruh kumpulan *source code* dari proyek yang saya kerjakan, dan eksperimen pengembangan perangkat lunak lainnya.</p>
+                            
+                            <a href="https://github.com/stoichkov-id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+                                Kunjungi Profil GitHub <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 2: E-Voting -->
+                    <div class="glass-card rounded-3xl p-8 border border-base-border/60 relative overflow-hidden group flex flex-col h-full">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-DEFAULT/20 rounded-full blur-[60px] group-hover:bg-brand-DEFAULT/30 transition-colors duration-500"></div>
+                        
+                        <div class="w-16 h-16 bg-base-bg border border-base-border rounded-2xl flex items-center justify-center text-brand-light text-3xl mb-6 shadow-lg group-hover:scale-105 group-hover:border-brand-DEFAULT/50 transition-all duration-500">
+                            <i class="fa-solid fa-check-to-slot"></i>
+                        </div>
+                        
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-300 text-xs font-code mb-4 w-fit">
+                            <i class="fa-solid fa-globe text-brand-light"></i> Live Web App
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Sistem E-Voting</h3>
+                        <p class="text-slate-400 text-base leading-relaxed mb-8 flex-grow">Aplikasi pemungutan suara elektronik berbasis web. Dirancang untuk memudahkan proses pemilihan dengan antarmuka yang modern, responsif, dan terstruktur.</p>
+                        
+                        <a href="https://stoichkov-id.github.io/evoting/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-DEFAULT hover:bg-brand-light text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 w-fit shadow-[0_0_15px_rgba(14,165,233,0.3)]">
+                            Kunjungi Aplikasi <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Proyek 3: Durian Market Indonesia -->
+                    <div class="glass-card rounded-3xl p-8 border border-base-border/60 relative overflow-hidden group flex flex-col h-full">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-[60px] group-hover:bg-emerald-500/20 transition-colors duration-500"></div>
+                        
+                        <div class="w-16 h-16 bg-base-bg border border-base-border rounded-2xl flex items-center justify-center text-emerald-400 text-3xl mb-6 shadow-lg group-hover:scale-105 group-hover:border-emerald-500/50 transition-all duration-500">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-300 text-xs font-code mb-4 w-fit">
+                            <i class="fa-solid fa-cart-shopping text-emerald-400"></i> E-Commerce Web
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Durian Market Indonesia</h3>
+                        <p class="text-slate-400 text-base leading-relaxed mb-8 flex-grow">Platform halaman web yang didedikasikan untuk penjualan dan promosi durian premium di Indonesia. Dibangun dengan antarmuka visual yang menarik dan pengalaman pengguna yang responsif.</p>
+                        
+                        <a href="https://stoichkov-id.github.io/Proyek/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 w-fit shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                            Kunjungi Web <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Kontak -->
+        <section id="contact" class="relative z-10 min-h-screen py-24 px-8 md:px-16 lg:px-24 bg-base-surface/30 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto w-full text-center">
+                <h2 class="text-4xl font-bold text-white mb-4 tracking-tight">Mari Berdiskusi</h2>
+                <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto">Ingin berkolaborasi dalam tugas, berbagi ilmu teknologi, atau sekadar berdiskusi? Jangan ragu untuk menghubungi saya!</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <!-- Email Card -->
+                    <a href="mailto:subhanid900@gmail.com" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 hover:border-brand-DEFAULT transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-brand-DEFAULT/10 rounded-full flex items-center justify-center text-brand-light text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-1">Email</h4>
+                        <p class="text-slate-400 font-medium">subhanid900@gmail.com</p>
+                    </a>
+
+                    <!-- WhatsApp Card -->
+                    <a href="https://wa.me/6289525995099" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 hover:border-emerald-500 transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-400 text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-1">WhatsApp</h4>
+                        <p class="text-slate-400 font-medium">+62 895-2599-5099</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Scripts -->
+    <script>
+        // Typing Effect Logic - Modern Professional
+        const textsToType = ["Mahasiswa", "Junior Web Developer", "Tech Enthusiast", "Pembelajar Aktif"];
+        const typingSpeed = 100;
+        const erasingSpeed = 50;
+        const delayBetweenTexts = 2000;
+        
+        const typedTextElement = document.getElementById('typed-text');
+        let textIndex = 0;
+        let charIndex = 0;
+        let isTyping = true;
+
+        function typeEffect() {
+            const currentText = textsToType[textIndex];
+            
+            if (isTyping) {
+                typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                
+                if (charIndex === currentText.length) {
+                    isTyping = false;
+                    setTimeout(typeEffect, delayBetweenTexts);
+                } else {
+                    setTimeout(typeEffect, typingSpeed);
+                }
+            } else {
+                typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                
+                if (charIndex === 0) {
+                    isTyping = true;
+                    textIndex = (textIndex + 1) % textsToType.length;
+                    setTimeout(typeEffect, typingSpeed);
+                } else {
+                    setTimeout(typeEffect, erasingSpeed);
+                }
+            }
+        }
+
+        setTimeout(typeEffect, 1000);
+
+        // Mobile Nav Toggle Logic
+        const toggleBtn = document.getElementById('mobile-nav-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const toggleIcon = toggleBtn.querySelector('i');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            if(sidebar.classList.contains('-translate-x-full')) {
+                toggleIcon.classList.remove('fa-xmark');
+                toggleIcon.classList.add('fa-bars');
+            } else {
+                toggleIcon.classList.remove('fa-bars');
+                toggleIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile nav when clicking a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 1280) {
+                    sidebar.classList.add('-translate-x-full');
+                    toggleIcon.classList.remove('fa-xmark');
+                    toggleIcon.classList.add('fa-bars');
+                }
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Scroll Spy Logic
+        const sections = document.querySelectorAll("section");
+        
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
